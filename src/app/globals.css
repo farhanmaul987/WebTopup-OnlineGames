@@ -1,42 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  background: #101010;
+  color: #f7f7f7;
+  --primary-red: #ff3b3b;
+  --primary-blue: #007bff;
+  --card-bg: #3a3a3a;
+  --border-color: #444444;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  /* Heading */
+  .heading-1 {
+    @apply text-[40px] font-semibold;
   }
-}
+  .heading-2 {
+    @apply text-[36px] font-semibold;
+  }
+  .heading-3 {
+    @apply text-[32px] font-semibold;
+  }
+  .heading-4 {
+    @apply text-[28px] font-semibold;
+  }
+  .heading-5 {
+    @apply text-[24px] font-semibold;
+  }
+  .heading-6 {
+    @apply text-[18px] font-semibold;
+  }
+  /* End Heading */
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  /* Navbar */
+  .navbar {
+    @apply sticky top-0 z-[100] bg-qrBlack py-3 shadow-lg;
+  }
+  .navbar .container {
+    @apply flex items-center justify-between;
+  }
+  .btn-auth {
+    @apply items-center justify-center rounded-md border-none bg-prRed px-6 py-2 text-[15px] text-white transition duration-100 hover:bg-srRed;
+  }
+  /* End of Navbar */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Hero Carousel */
+  .hero-carousel {
+    @apply py-9;
+  }
+  .carousel-slide {
+    @apply relative mx-auto flex h-[300px] w-[1050px] items-center rounded-lg bg-cover bg-center;
+  }
+  .carousel-slide::before {
+    @apply absolute left-0 top-0 h-full w-full rounded-lg bg-[rgba(0,0,0,0.5)] content-[""];
+  }
+  .carousel-content {
+    @apply relative ml-[5%] max-w-[600px] p-20;
+  }
+  .carousel-content h2 {
+    @apply heading-2 mb-4;
+    /* -webkit-text-fill-color: transparent; */
+    /* -webkit-background-clip: text; */
+  }
+  .carousel-content p {
+    @apply mb-6 text-[1.2rem];
+  }
+  .btn-primary {
+    @apply cursor-pointer rounded-lg border-[none] bg-prRed px-6 py-3 font-semibold text-white transition duration-100;
+  }
+  /* End of Hero Carousel */
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  /* Popular Games */
+  .popular-games {
+    @apply mb-12;
+  }
+  .popular-grid {
+    @apply mx-3 mt-5 grid grid-cols-3 gap-3;
+  }
+  .popular-content {
+    @apply border-[2px] border-transparent bg-sdBlack hover:border-[2px] hover:border-prRed;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  /* End of Popular Games */
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  /* Game Search Section */
+  .product-list {
+    @apply my-12;
+  }
+  .section-title {
+    @apply mb-12 bg-gradient-to-r from-prRed to-prBlue p-[1px];
+  }
+  /* End of Game Search Section */
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  /* Game Grid */
+  .game-grid {
+    @apply flex flex-wrap items-center justify-center gap-4;
+  }
+  .game-card {
+    @apply relative flex h-[240px] w-[165px] items-center justify-center overflow-hidden rounded-xl bg-cover bg-center transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:scale-105 hover:shadow-[0_8px_16px_rgba(255,255,255,0.2)];
+    perspective: 1000px;
+  }
+
+  .card-content {
+    @apply absolute left-0 top-0 box-border flex h-full w-full origin-bottom flex-col items-center justify-center rounded-xl border border-prRed bg-sdBlack/95 p-5 text-center transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)];
+    transform: rotateX(-90deg);
+  }
+  .game-card:hover .card-content {
+    transform: rotateX(0deg);
+  }
+  .card-title {
+    @apply m-0 text-xl font-semibold;
+  }
+  .card-description {
+    @apply mx-0 mb-0 mt-2.5 text-base leading-[1.4] text-[#777];
+  }
+  .btn-secondary {
+    @apply w-full cursor-pointer rounded border-none bg-gradient-to-r from-prRed to-prBlue px-4 py-2 font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5;
+  }
+  /* End of Game Grid */
+
+  /* Footer */
+  .footer {
+    @apply mt-12 border-t border-t-prBlack bg-sdBlack px-0 py-8 text-center;
+  }
+  /* End of Footer */
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+    }
+    .carousel-content h2 {
+      font-size: 2rem;
+    }
+    .carousel-content p {
+      font-size: 1rem;
+    }
+    .game-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
   }
 }
