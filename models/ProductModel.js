@@ -13,6 +13,10 @@ const productSchema = new Schema(
     productTitle: { type: String, required: true },
     developer: { type: String, required: true },
     productThumbnail: { type: String, required: true },
+    category: {
+      type: [String],
+      required: true,
+    },
     items: [ItemSchema],
   },
   {
@@ -21,4 +25,4 @@ const productSchema = new Schema(
 );
 
 export const productList =
-  models.productList || model("productList", productSchema);
+  models.productlists || model("productlists", productSchema);

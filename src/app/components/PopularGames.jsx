@@ -4,7 +4,7 @@ import { RiArrowRightSFill } from "@remixicon/react";
 const PopularGames = ({ populars }) => {
   return (
     <section className="popular-games">
-      <div className="heading-3 pl-3 pt-2">Popular Games</div>
+      <div className="heading-4 pl-3 pt-2">Produk Populer</div>
       <div className="popular-grid">
         {populars.map((popular) => (
           <div key={popular.id}>

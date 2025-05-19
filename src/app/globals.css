@@ -90,24 +90,25 @@
   }
   /* End of Popular Games */
 
-  /* Game Search Section */
+  /* Product Section */
   .product-list {
-    @apply my-12;
+    @apply mx-3;
   }
   .section-title {
-    @apply mb-12 bg-gradient-to-r from-prRed to-prBlue p-[1px];
+    @apply mx-3 mb-9 bg-gradient-to-r from-prRed to-prBlue p-[1px];
   }
-  /* End of Game Search Section */
 
   /* Game Grid */
   .game-grid {
-    @apply flex flex-wrap items-center justify-center gap-4;
+    @apply mt-5 flex flex-wrap items-center justify-start gap-4;
   }
   .game-card {
     @apply relative flex h-[240px] w-[165px] items-center justify-center overflow-hidden rounded-xl bg-cover bg-center transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:scale-105 hover:shadow-[0_8px_16px_rgba(255,255,255,0.2)];
     perspective: 1000px;
   }
-
+  .category {
+    @apply mt-3 items-center justify-center rounded-full border-[1px] border-white/30 bg-gray-800 px-4 py-2 text-sm text-white hover:bg-gray-900;
+  }
   .card-content {
     @apply absolute left-0 top-0 box-border flex h-full w-full origin-bottom flex-col items-center justify-center rounded-xl border border-prRed bg-sdBlack/95 p-5 text-center transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)];
     transform: rotateX(-90deg);
